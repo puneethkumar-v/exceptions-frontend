@@ -40,6 +40,7 @@ import RemoveEventForm from "./components/coordinator/RemoveEventForm";
 import AllowedEmail from "./components/admin/AllowedEmail";
 import ScoreForm from "./components/admin/ScoreForm";
 import ScoreBoard from "./components/admin/ScoreBoard";
+import ActualParticipants from "./components/admin/AdminPaidDashBoard";
 
 function App() {
   const user = Cookies.get("token");
@@ -192,6 +193,15 @@ function App() {
               />
 
               <Route
+                path="actual-participants"
+                element={
+                  <ProtectedRoute>
+                    <ActualParticipants />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
                 path="get-team-events"
                 element={
                   <ProtectedRoute>
@@ -336,10 +346,10 @@ function App() {
           {!user && (
             <>
               <Route path="/" element={<LandingPage />} />
-              {/* <Route path="/logintemp" element={<Login />} /> */}
+              {/* <Route path="/logintemp" element={<Login />} /> 
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/rules" element={<Rules />} />
-              {/*<Route path="/registertemp" element={<Registration />} /> */}
+              <Route path="/registertemp" element={<Registration />} /> 
               <Route path="/register" element={<Registration />} />
               <Route path="/login" element={<Login />} />
               <Route exact path="/details/:id" element={<DetailedEvents />} />
@@ -354,16 +364,20 @@ function App() {
                 element={<EmailConfirmation />}
               />
               <Route exact path="/reset-password" element={<ResetPassword />} />{" "}
+
+            */}
             </>
           )}
 
           {/*Backend Routes*/}
 
-          <Route
-            exact
-            path="/backend-registration"
-            element={<RegisterPrivate />}
-          />
+          {/*
+       <Route
+       exact
+       path="/backend-registration"
+       element={<RegisterPrivate />}
+     />
+      */}
 
           {/* Error 404 handler */}
 

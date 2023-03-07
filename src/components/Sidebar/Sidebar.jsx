@@ -282,6 +282,13 @@ const Sidebar = ({
                     setSelected={setSelected}
                   />
                   <Item
+                    title="Actual Participants"
+                    to="actual-participants"
+                    icon={<AddTaskIcon />}
+                    selected={selected}
+                    setSelected={setSelected}
+                  />
+                  <Item
                     title="Get All Teams"
                     to="get-teams"
                     icon={<PeopleIcon />}
